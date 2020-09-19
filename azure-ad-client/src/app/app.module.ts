@@ -7,7 +7,8 @@ import { environment } from 'src/environments/environment';
 import { ProfileComponent } from './profile/profile.component';
 import { MsalInterceptor, MsalModule, MsalService } from '@azure/msal-angular';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ApiService } from './shared/api.service';
 const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigato
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     MsalModule.forRoot({
       auth: {
         clientId: environment.clientId,
@@ -50,7 +52,8 @@ const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigato
       useClass: MsalInterceptor,
       multi: true
     },
-  MsalService
+  MsalService,
+  ApiService
 ],
   bootstrap: [AppComponent]
 })

@@ -1,4 +1,11 @@
 Name: {{name}}<br/>
 Username: {{username}}
 <br/>
+
+<h3>Data From Web API</h3>
+<ul>
+  <li *ngFor="let element of weatherData" [type]="element">
+    {{element.date}}, {{element.summary}}, {{element.temperatureC}}, {{element.temperatureF}}
+  </li>
+</ul>
 <button type='button' name='logOut' id='logout' (click)="logout()">Log Out</button>

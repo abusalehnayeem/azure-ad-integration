@@ -21,6 +21,14 @@ namespace azure_ad_webapi
         {
             services.AddControllers();
 
+            // Add Cors
+            services.AddCors(o => o.AddPolicy("default", builder =>
+            {
+                builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader();
+            }));
+
             services.AddAuthentication(o =>
             {
                 o.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -38,7 +46,8 @@ namespace azure_ad_webapi
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment()) app.UseDeveloperExceptionPage();
-
+            // Enable Cors
+            app.UseCors("default");
             app.UseRouting();
 
             app.UseAuthentication();
