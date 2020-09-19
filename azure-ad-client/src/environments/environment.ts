@@ -5,10 +5,10 @@
 export const environment = {
   production: false,
   clientId: 'b9535469-bbe7-4a66-8823-4fef098be78e',
-  // authority: 'https://login.microsoftonline.com/c1ec3067-d41e-4053-b90c-d7619dae7650/',
-  authority: 'https://login.microsoftonline.com/organizations',
-  redirectUrl: 'https://localhost:4200',
-  postLogoutRedirectUri: 'https://localhost:4200/exit'
+  authority: 'https://login.microsoftonline.com/c1ec3067-d41e-4053-b90c-d7619dae7650/',
+  // authority: 'https://login.microsoftonline.com/organizations',
+  redirectUrl: 'http://localhost:4200',
+  postLogoutRedirectUri: 'http://localhost:4200/exit'
 };
 
 /*
