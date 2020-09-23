@@ -12,6 +12,7 @@ export class ProfileComponent implements OnInit {
   name: string;
   username: string;
 
+  public account: Account;
   public weatherData: IWeatherForecast[] = [];
 
   constructor(private msalService: MsalService, private apiService: ApiService) { }
@@ -30,6 +31,7 @@ export class ProfileComponent implements OnInit {
       this.weatherData = res as IWeatherForecast[];
     });
   }
+
 
 
   logout() {

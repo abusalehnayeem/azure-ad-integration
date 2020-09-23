@@ -59,8 +59,3 @@ const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigato
 })
 export class AppModule {}
 
-/*clientId: environment.clientId,
-authority: environment.authority,
-redirectUri: environment.redirectUrl,
-postLogoutRedirectUri: environment.redirectUrl,
-navigateToLoginRequestUrl: true*/

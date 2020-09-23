@@ -8,6 +8,7 @@ import { Subscription } from 'rxjs';
 })
 export class AppComponent {
   title = 'azure-ad-client';
+  isIframe = false;
 
   public subscription: Subscription;
   public isLoggedIn = false;
@@ -21,7 +22,12 @@ export class AppComponent {
 
   // tslint:disable-next-line: use-lifecycle-interface
   ngOnInit() {
-    this.subscription = this.broadcastService.subscribe('msal:acquireTokenFailure', () => {
+
+    this.isIframe = window !== window.parent && !window.opener;
+
+    this.checkAccount();
+
+    this.subscription = this.broadcastService.subscribe('msal:loginSuccess', () => {
       this.getAccount();
     });
   }
